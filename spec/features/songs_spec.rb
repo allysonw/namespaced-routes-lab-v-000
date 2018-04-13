@@ -3,8 +3,10 @@ describe "songs", type:  :feature do
   before do
     Artist.destroy_all
     Song.destroy_all
+    Preference.destroy_all
     @artist = Artist.create!(name: "Daft Punk")
     @song = @artist.songs.create!(title: "The Grid")
+    Preference.create(artist_sort_order: "ASC", song_sort_order: "ASC", allow_create_artists: true, allow_create_songs: true)
   end
 
   context "when nested under artists" do
