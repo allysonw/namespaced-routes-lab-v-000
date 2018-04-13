@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    if current_preference.artist_sort_order == "ASC"
+    if current_preference && current_preference.artist_sort_order == "ASC"
       @artists = Artist.order(name: :asc)
     else
       @artists = Artist.order(name: :desc)

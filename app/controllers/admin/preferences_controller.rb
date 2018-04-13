@@ -3,8 +3,7 @@ class Admin::PreferencesController < ApplicationController
     @preference = current_preference
 
     if @preference.nil?
-      @preference = Preference.new(artist_sort_order: "ASC", song_sort_order: "ASC", allow_create_artists: true, allow_create_songs: true)
-      @preference.save
+      @preference = Preference.create(artist_sort_order: "ASC", song_sort_order: "ASC", allow_create_artists: true, allow_create_songs: true)
     end
 
   end

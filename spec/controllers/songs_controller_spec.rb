@@ -5,7 +5,6 @@ RSpec.describe SongsController do
   before do
     Song.destroy_all
     Artist.destroy_all
-    Preference.destroy_all
     @artist = Artist.create(name: "Garth Brooks")
     @song = @artist.songs.create(title: "I'm def not Chris Gaines, Everyone haha what are you talking about?")
   end
@@ -18,7 +17,6 @@ RSpec.describe SongsController do
     end
 
     it 'returns 200 when just index with no artist_id' do
-      p = Preference.create(artist_sort_order: "ASC", song_sort_order: "ASC", allow_create_artists: true, allow_create_songs: false)
       get :index
       expect(response).to be_ok
     end
